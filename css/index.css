@@ -1,0 +1,308 @@
+:root {
+  --color-main: #77875b;
+  --color-hover: #859f59;
+  --color-gray: #848484;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.875rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.header__logo {
+  width: 8rem;
+
+  &.header__logo-image {
+    width: 100%;
+    display: block;
+  }
+}
+.header__nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+.header__link {
+  color: #000;
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s;
+  &.header__link--active {
+    color: var(--color-main);
+  }
+  &:hover {
+    color: var(--color-hover);
+  }
+}
+.header__burger {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* SECTION */
+.section {
+  padding: 0.625rem;
+}
+.mosaic {
+  display: grid;
+  gap: 0.625rem;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  aspect-ratio: 6 / 5;
+
+  grid-template-areas:
+    "flower q      fern   moma     moon moon"
+    "kata   quote  fern   magnolia moon moon"
+    "nums   nums   stay   moth     euca to"
+    "nums   nums   soho   leaf     euca elaf"
+    "vow    vow    fly    prome    tromso plant";
+}
+.tile {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  & .tile__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+}
+.tile--flower {
+  grid-area: flower;
+}
+.tile--q {
+  grid-area: q;
+}
+.tile--fern {
+  grid-area: fern;
+}
+.tile--moma {
+  grid-area: moma;
+}
+.tile--moon {
+  grid-area: moon;
+}
+.tile--kata {
+  grid-area: kata;
+}
+.tile--quote {
+  grid-area: quote;
+}
+.tile--magnolia {
+  grid-area: magnolia;
+}
+.tile--nums {
+  grid-area: nums;
+}
+.tile--stay {
+  grid-area: stay;
+}
+.tile--moth {
+  grid-area: moth;
+}
+.tile--euca {
+  grid-area: euca;
+}
+.tile--to {
+  grid-area: to;
+}
+.tile--soho {
+  grid-area: soho;
+}
+.tile--leaf {
+  grid-area: leaf;
+}
+.tile--elaf {
+  grid-area: elaf;
+}
+.tile--vow {
+  grid-area: vow;
+}
+.tile--fly {
+  grid-area: fly;
+}
+.tile--prome {
+  grid-area: prome;
+}
+.tile--tromso {
+  grid-area: tromso;
+}
+.tile--plant {
+  grid-area: plant;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 5.5rem;
+  padding-bottom: 3.75rem;
+}
+.footer__top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+}
+.footer__logo {
+  width: 11.5rem;
+}
+.footer__text {
+  color: var(--color-gray);
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+  max-width: 25rem;
+}
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.footer__icon {
+  color: #000;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-main);
+  }
+}
+.footer__copyright {
+  color: var(--color-gray);
+  text-align: center;
+  font-size: 0.8125rem;
+  text-transform: capitalize;
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+@media (max-width: 1200px) {
+  .mosaic {
+    aspect-ratio: auto;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(6, calc((100vw - 2.5rem) / 5));
+
+    grid-template-areas:
+      "flower q      fern   moon     moon"
+      "kata   quote  fern   moon     moon"
+      "nums   nums   moma   magnolia stay"
+      "nums   nums   moth   euca     to"
+      "vow    vow    soho   euca     elaf"
+      "fly    prome  tromso plant    leaf";
+  }
+}
+
+@media (max-width: 992px) {
+  .mosaic {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(8, calc((100vw - 1.875rem) / 4));
+
+    grid-template-areas:
+      "flower q      moon     moon"
+      "fern   kata   moon     moon"
+      "fern   quote  magnolia moma"
+      "nums   nums   stay     moth"
+      "nums   nums   euca     to"
+      "vow    vow    euca     elaf"
+      "soho   fly    prome    tromso"
+      "leaf   plant  plant    tromso";
+  }
+}
+
+@media (max-width: 768px) {
+  .mosaic {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(11, calc((100vw - 1.25rem) / 3));
+
+    grid-template-areas:
+      "moon     moon     flower"
+      "moon     moon     q"
+      "fern     nums     nums"
+      "fern     nums     nums"
+      "kata     quote    moma"
+      "magnolia stay     moth"
+      "euca     vow      vow"
+      "euca     soho     to"
+      "leaf     elaf     plant"
+      "prome    fly      plant"
+      "tromso   tromso   plant";
+  }
+}
+
+@media (max-width: 576px) {
+  .header__nav {
+    display: none;
+  }
+  .mosaic {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(15, calc((100vw - 0.625rem) / 2));
+
+    grid-template-areas:
+      "moon     moon"
+      "moon     moon"
+      "nums     nums"
+      "nums     nums"
+      "fern     q"
+      "fern     flower"
+      "euca     kata"
+      "euca     quote"
+      "vow      vow"
+      "moma     magnolia"
+      "stay     moth"
+      "soho     leaf"
+      "to       elaf"
+      "fly      prome"
+      "tromso   plant";
+  }
+}
+
+@media (max-width: 420px) {
+  .mosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(21, 100vw);
+
+    grid-template-areas:
+      "flower"
+      "q"
+      "fern"
+      "moma"
+      "moon"
+      "kata"
+      "quote"
+      "magnolia"
+      "nums"
+      "stay"
+      "moth"
+      "euca"
+      "to"
+      "soho"
+      "leaf"
+      "elaf"
+      "vow"
+      "fly"
+      "prome"
+      "tromso"
+      "plant";
+  }
+}
